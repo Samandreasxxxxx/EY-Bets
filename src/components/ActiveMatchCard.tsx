@@ -129,7 +129,7 @@ export default function ActiveMatchCard({ match }: ActiveMatchCardProps) {
   if (!activeUser) return null;
 
   return (
-    <div className="bg-dark-card border border-[#1a1d24] hover:border-pink-pop/25 transition-all rounded-lg overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between">
+    <div className="glass-3d glass-shine hover:border-pink-pop/35 transition-all rounded-lg overflow-hidden flex flex-col justify-between">
       {match.status === "completed" && userBet && userBet.status === "won" && (
         <ConfettiEffect />
       )}

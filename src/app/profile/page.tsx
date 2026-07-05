@@ -89,7 +89,7 @@ export default function ProfilePage() {
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
           {/* USER CARD & STATS SUMMARY */}
-          <div className="lg:col-span-1 bg-[#0c0d10] border border-[#1a1d24] p-5 rounded-lg flex flex-col gap-6 shadow relative">
+          <div className="lg:col-span-1 glass-3d glass-shine p-5 rounded-lg flex flex-col gap-6 relative">
             {/* Subtle Pink Indicator Line */}
             <div className="absolute top-0 left-0 w-24 h-[2px] bg-pink-pop"></div>
 
@@ -165,7 +165,7 @@ export default function ProfilePage() {
           </div>
 
           {/* NET PROFIT CHART */}
-          <div className="lg:col-span-2 bg-[#0c0d10] border border-[#1a1d24] p-5 rounded-lg shadow flex flex-col gap-4 relative">
+          <div className="lg:col-span-2 glass-3d p-5 rounded-lg flex flex-col gap-4 relative">
             <div>
               <h3 className="text-sm font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
                 <TrendingUp className="w-4 h-4 text-primary" />
@@ -241,7 +241,7 @@ export default function ProfilePage() {
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans">
           
           {/* Add Friend form */}
-          <div className="md:col-span-1 bg-[#0c0d10] border border-[#1a1d24] p-5 rounded-lg shadow flex flex-col gap-4">
+          <div className="md:col-span-1 glass-3d p-5 rounded-lg flex flex-col gap-4">
             <h3 className="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2 border-b border-dark-border pb-2.5">
               <UserPlus className="w-4 h-4 text-pink-pop" />
               Add Friend Link
@@ -281,7 +281,7 @@ export default function ProfilePage() {
           </div>
 
           {/* Incoming requests */}
-          <div className="md:col-span-1 bg-[#0c0d10] border border-[#1a1d24] p-5 rounded-lg shadow flex flex-col gap-4">
+          <div className="md:col-span-1 glass-3d p-5 rounded-lg flex flex-col gap-4">
             <h3 className="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2 border-b border-dark-border pb-2.5">
               <Users className="w-4 h-4 text-pink-pop animate-pulse" />
               Friend Requests ({incomingRequests.length})
@@ -325,7 +325,7 @@ export default function ProfilePage() {
           </div>
 
           {/* Friends list */}
-          <div className="md:col-span-1 bg-[#0c0d10] border border-[#1a1d24] p-5 rounded-lg shadow flex flex-col gap-4">
+          <div className="md:col-span-1 glass-3d p-5 rounded-lg flex flex-col gap-4">
             <h3 className="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2 border-b border-dark-border pb-2.5">
               <Users className="w-4 h-4 text-pink-pop" />
               Friend Radar Network

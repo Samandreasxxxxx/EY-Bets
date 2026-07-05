@@ -124,6 +124,67 @@ body {
   box-shadow: 0 0 15px rgba(255, 0, 122, 0.03);
 }
 
+/* 3D Glass Effect & Bevels */
+.glass-3d {
+  background: linear-gradient(135deg, rgba(20, 21, 26, 0.7) 0%, rgba(8, 9, 12, 0.9) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.65), 
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.4);
+}
+
+/* Animated Reflective Shine Effect */
+.glass-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.03) 10%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.03) 90%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.glass-shine:hover::before {
+  left: 150%;
+  transition: all 1.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Glass-3D Highlight borders */
+.glass-3d-lime {
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.7), 
+    0 0 20px rgba(213, 255, 64, 0.03),
+    inset 0 1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 -1px 1px rgba(213, 255, 64, 0.1);
+  border: 1px solid rgba(213, 255, 64, 0.2);
+}
+
+.glass-3d-pink {
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.7), 
+    0 0 20px rgba(255, 0, 122, 0.03),
+    inset 0 1px 1px rgba(255, 255, 255, 0.18),
+    inset 0 -1px 1px rgba(255, 0, 122, 0.1);
+  border: 1px solid rgba(255, 0, 122, 0.2);
+}
+
 /* Asteroids Outlines Styling */
 .asteroid-rock {
   position: absolute;

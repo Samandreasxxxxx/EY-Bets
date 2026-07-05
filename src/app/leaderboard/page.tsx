@@ -147,8 +147,8 @@ export default function LeaderboardPage() {
                       </span>
                     </div>
 
-                    {/* Physical Podium Block (Sharp edges, Gradient borders) */}
-                    <div className={`w-full ${height} bg-[#0c0d10] border-x border-b border-dark-border rounded-t flex flex-col justify-end p-3 relative overflow-hidden`}>
+                    {/* Physical Podium Block (3D Glass, Gradient borders) */}
+                    <div className={`w-full ${height} glass-3d rounded-t flex flex-col justify-end p-3 relative overflow-hidden`}>
                       
                       {/* Top base glow */}
                       <div className={`absolute top-0 inset-x-0 h-[2px] ${glow}`}></div>
@@ -179,7 +179,7 @@ export default function LeaderboardPage() {
         )}
 
         {/* RANKINGS LIST TABLE */}
-        <section className="bg-dark-card border border-[#1a1d24] rounded-lg p-5 shadow-lg flex flex-col gap-3 font-sans">
+        <section className="glass-3d rounded-lg p-5 flex flex-col gap-3 font-sans">
           <div className="flex justify-between items-center text-[10px] text-sage-muted border-b border-dark-border pb-3 uppercase font-bold tracking-widest font-mono">
             <span>Standings Standings ({sortedUsers.length} users):</span>
             <span className="flex items-center gap-1"><Compass className="w-3.5 h-3.5 text-pink-pop animate-pulse" /> Sort: {sortBy === "profit" ? "Profit" : "Won"}</span>

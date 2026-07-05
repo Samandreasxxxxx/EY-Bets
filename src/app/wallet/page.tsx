@@ -102,8 +102,8 @@ export default function WalletPage() {
         {/* Top Wallet Overview */}
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
-          {/* Balance Display (Sharp card with hot pink highlight edge) */}
-          <div className="lg:col-span-1 bg-[#0c0d10] border border-[#1a1d24] p-6 rounded-lg flex flex-col justify-between shadow-lg relative overflow-hidden">
+          {/* Balance Display (3D glass card with hot pink highlight edge) */}
+          <div className="lg:col-span-1 glass-3d glass-shine p-6 rounded-lg flex flex-col justify-between relative overflow-hidden">
             {/* Subtle Pink Indicator Line */}
             <div className="absolute top-0 left-0 w-24 h-[2px] bg-pink-pop"></div>
 
@@ -136,7 +136,7 @@ export default function WalletPage() {
           </div>
 
           {/* Form Action Panel (Deposits & Withdrawals tabs) */}
-          <div className="lg:col-span-2 bg-[#0c0d10] border border-[#1a1d24] rounded-lg overflow-hidden shadow-lg flex flex-col justify-between">
+          <div className="lg:col-span-2 glass-3d rounded-lg overflow-hidden flex flex-col justify-between">
             
             {/* Tabs Selector */}
             <div className="flex border-b border-dark-border bg-dark-bg/25 text-[10px] uppercase font-bold tracking-widest">
@@ -381,7 +381,7 @@ export default function WalletPage() {
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans">
           
           {/* My Deposits Tracker */}
-          <div className="bg-[#0c0d10] border border-[#1a1d24] rounded-lg p-5 shadow">
+          <div className="glass-3d rounded-lg p-5">
             <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-3.5 flex items-center gap-2 border-b border-dark-border/60 pb-2.5">
               <Clock className="w-4 h-4 text-primary" />
               Deposit Verification Logs
@@ -423,7 +423,7 @@ export default function WalletPage() {
           </div>
 
           {/* My Withdrawals Tracker */}
-          <div className="bg-[#0c0d10] border border-[#1a1d24] rounded-lg p-5 shadow">
+          <div className="glass-3d rounded-lg p-5">
             <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-3.5 flex items-center gap-2 border-b border-dark-border/60 pb-2.5">
               <Clock className="w-4 h-4 text-primary" />
               Withdrawal Payout Logs

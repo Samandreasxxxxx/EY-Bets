@@ -97,8 +97,8 @@ export default function Dashboard() {
       {/* Main Container */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-6 relative z-10">
         
-        {/* Banner Welcome (Sharp, Linear border details, Pink edge glow) */}
-        <div className="bg-gradient-to-br from-dark-card to-dark-bg border border-dark-border border-l-4 border-l-pink-pop rounded p-5 md:p-6 shadow-lg relative overflow-hidden flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        {/* Banner Welcome (3D Glass, Linear border details, Pink edge glow) */}
+        <div className="glass-3d border-l-4 border-l-pink-pop rounded p-5 md:p-6 relative overflow-hidden flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="relative z-10">
             <h1 className="text-xl font-black tracking-wider text-white uppercase flex items-center gap-2 font-mono">
               LOBBY FEED <span className="text-primary animate-pulse">●</span>
@@ -124,7 +124,7 @@ export default function Dashboard() {
         <section className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           
           {/* Wallet Card */}
-          <div className="bg-[#0c0d10] border border-[#1a1d24] hover:border-pink-pop/20 transition-all p-4 rounded flex flex-col justify-between shadow relative">
+          <div className="glass-3d glass-shine hover:border-pink-pop/30 transition-all p-4 rounded flex flex-col justify-between relative">
             <div className="flex justify-between items-start text-sage-muted">
               <span className="text-[9px] font-bold font-mono uppercase tracking-widest">Cash Balance</span>
               <Coins className="w-4 h-4 text-primary" />
@@ -138,7 +138,7 @@ export default function Dashboard() {
           </div>
 
           {/* Net Profit Card */}
-          <div className="bg-[#0c0d10] border border-[#1a1d24] hover:border-pink-pop/20 transition-all p-4 rounded flex flex-col justify-between shadow">
+          <div className="glass-3d glass-shine hover:border-pink-pop/30 transition-all p-4 rounded flex flex-col justify-between">
             <div className="flex justify-between items-start text-sage-muted">
               <span className="text-[9px] font-bold font-mono uppercase tracking-widest">Net Profit</span>
               <TrendingUp className="w-4 h-4 text-primary" />
@@ -154,7 +154,7 @@ export default function Dashboard() {
           </div>
 
           {/* Win Rate Card */}
-          <div className="bg-[#0c0d10] border border-[#1a1d24] hover:border-pink-pop/20 transition-all p-4 rounded flex flex-col justify-between shadow">
+          <div className="glass-3d glass-shine hover:border-pink-pop/30 transition-all p-4 rounded flex flex-col justify-between">
             <div className="flex justify-between items-start text-sage-muted">
               <span className="text-[9px] font-bold font-mono uppercase tracking-widest">Win Rate %</span>
               <Trophy className="w-4 h-4 text-primary" />
@@ -168,7 +168,7 @@ export default function Dashboard() {
           </div>
 
           {/* Winning Streak Card */}
-          <div className="bg-[#0c0d10] border border-[#1a1d24] hover:border-pink-pop/20 transition-all p-4 rounded flex flex-col justify-between shadow border-r-2 border-r-pink-pop">
+          <div className="glass-3d glass-shine hover:border-pink-pop/30 transition-all p-4 rounded flex flex-col justify-between border-r-2 border-r-pink-pop">
             <div className="flex justify-between items-start text-sage-muted">
               <span className="text-[9px] font-bold font-mono uppercase tracking-widest">Win Streak</span>
               <Award className="w-4 h-4 text-pink-pop animate-pulse" />
@@ -191,7 +191,7 @@ export default function Dashboard() {
           <div className="lg:col-span-2 flex flex-col gap-4">
             
             {/* Filter and Title */}
-            <div className="flex justify-between items-center bg-[#0c0d10] border border-[#1a1d24] p-3.5 rounded">
+            <div className="flex justify-between items-center glass-3d p-3.5 rounded">
               <div className="flex items-center gap-2">
                 <Swords className="w-4 h-4 text-primary" />
                 <h3 className="font-black text-xs uppercase text-white tracking-widest font-mono">Prediction Pools</h3>
@@ -217,7 +217,7 @@ export default function Dashboard() {
 
             {/* List */}
             {filteredLiveMatches.length === 0 ? (
-              <div className="bg-dark-card border border-dark-border border-dashed rounded py-12 px-6 text-center flex flex-col items-center gap-4 shadow-sm">
+              <div className="glass-3d border-dashed rounded py-12 px-6 text-center flex flex-col items-center gap-4">
                 <div className="w-14 h-14 rounded bg-primary/10 border border-primary/20 flex items-center justify-center text-xl animate-pulse">
                   📡
                 </div>
@@ -248,7 +248,7 @@ export default function Dashboard() {
             
             {/* Live Social Feed (Pop Highlights) */}
             <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-2 bg-[#0c0d10] border border-[#1a1d24] p-3.5 rounded relative">
+              <div className="flex items-center gap-2 glass-3d p-3.5 rounded relative">
                 {/* Ping Dot */}
                 <span className="relative flex h-2 w-2 mr-1">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-pop opacity-75"></span>
@@ -257,7 +257,7 @@ export default function Dashboard() {
                 <h3 className="font-black text-xs uppercase text-white tracking-widest font-mono">Lobby Signal Radar</h3>
               </div>
               
-              <div className="bg-[#0c0d10] border border-[#1a1d24] p-4 rounded shadow-md flex flex-col gap-3">
+              <div className="glass-3d p-4 rounded flex flex-col gap-3">
                 {sortedFeed.length === 0 ? (
                   <div className="text-xs text-sage-muted text-center py-6 font-mono">
                     Lobby activity scanner is quiet.
@@ -282,14 +282,14 @@ export default function Dashboard() {
 
             {/* Match History */}
             <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-2 bg-[#0c0d10] border border-[#1a1d24] p-3.5 rounded">
+              <div className="flex items-center gap-2 glass-3d p-3.5 rounded">
                 <History className="w-4 h-4 text-primary" />
                 <h3 className="font-black text-xs uppercase text-white tracking-widest font-mono">Resolved Matches</h3>
               </div>
 
               {/* History Cards */}
               {completedMatches.length === 0 ? (
-                <div className="bg-dark-card border border-dark-border rounded py-10 px-4 text-center text-sage-muted text-[10px] font-mono uppercase tracking-wider">
+                <div className="glass-3d rounded py-10 px-4 text-center text-sage-muted text-[10px] font-mono uppercase tracking-wider">
                   No finished match signals recorded.
                 </div>
               ) : (
@@ -297,7 +297,7 @@ export default function Dashboard() {
                   {completedMatches.map((m) => (
                     <div 
                       key={m.id} 
-                      className="bg-[#0c0d10] border border-[#1a1d24] p-3.5 rounded shadow flex flex-col gap-2 font-sans"
+                      className="glass-3d glass-shine p-3.5 rounded flex flex-col gap-2 font-sans"
                     >
                       {/* Game and date */}
                       <div className="flex justify-between items-center text-[9px] text-sage-muted font-mono font-bold uppercase">

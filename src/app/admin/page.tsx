@@ -124,7 +124,7 @@ export default function AdminPage() {
 
         {/* TAB 1: VERIFY DEPOSITS */}
         {activeTab === "deposits" && (
-          <section className="bg-dark-card border border-[#1a1d24] rounded p-5 shadow">
+          <section className="glass-3d rounded p-5">
             <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2 border-b border-dark-border pb-2.5 font-mono">
               <Coins className="w-4 h-4 text-yellow-400" />
               Expected payment approvals
@@ -179,7 +179,7 @@ export default function AdminPage() {
 
         {/* TAB 2: DISBURSE WITHDRAWALS */}
         {activeTab === "withdrawals" && (
-          <section className="bg-dark-card border border-[#1a1d24] rounded p-5 shadow">
+          <section className="glass-3d rounded p-5">
             <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2 border-b border-dark-border pb-2.5 font-mono">
               <ShieldAlert className="w-4 h-4 text-yellow-400 animate-pulse" />
               Pending Withdrawal Settlements (Manual transfer)
@@ -234,7 +234,7 @@ export default function AdminPage() {
 
         {/* TAB 3: MANAGE USERS */}
         {activeTab === "users" && (
-          <section className="bg-dark-card border border-[#1a1d24] rounded p-5 shadow flex flex-col gap-4">
+          <section className="glass-3d rounded p-5 flex flex-col gap-4">
             
             {/* Header controls */}
             <div className="flex flex-col sm:flex-row gap-3 justify-between items-center border-b border-dark-border pb-3">
@@ -319,21 +319,21 @@ export default function AdminPage() {
           <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs uppercase">
             
             {/* Stat 1 */}
-            <div className="bg-dark-card border border-dark-border p-5 rounded flex flex-col justify-between shadow">
+            <div className="glass-3d glass-shine p-5 rounded flex flex-col justify-between">
               <div className="text-[9px] font-bold tracking-widest text-sage-muted">Total Pool Volume</div>
               <div className="text-2xl font-black text-white mt-2">₹{totalVolume}</div>
               <p className="text-[9px] text-sage-muted mt-2 font-sans lowercase">Sum of stakes in completed matches.</p>
             </div>
 
             {/* Stat 2 */}
-            <div className="bg-dark-card border border-dark-border p-5 rounded flex flex-col justify-between shadow border-b-2 border-b-pink-pop">
+            <div className="glass-3d glass-shine p-5 rounded flex flex-col justify-between border-b-2 border-b-pink-pop">
               <div className="text-[9px] font-bold tracking-widest text-sage-muted">Fee Revenue (5%)</div>
               <div className="text-2xl font-black text-primary mt-2">₹{totalCommission}</div>
               <p className="text-[9px] text-sage-muted mt-2 font-sans lowercase">Platform commission fees collected.</p>
             </div>
 
             {/* Stat 3 */}
-            <div className="bg-dark-card border border-dark-border p-5 rounded flex flex-col justify-between shadow">
+            <div className="glass-3d glass-shine p-5 rounded flex flex-col justify-between">
               <div className="text-[9px] font-bold tracking-widest text-sage-muted">Deposits vs Payouts</div>
               <div className="text-xs font-bold text-white mt-2 flex flex-col gap-0.5">
                 <span>In: <b className="text-green-400">₹{totalDeposits}</b></span>
@@ -343,7 +343,7 @@ export default function AdminPage() {
             </div>
 
             {/* Stat 4 */}
-            <div className="bg-dark-card border border-dark-border p-5 rounded flex flex-col justify-between shadow">
+            <div className="glass-3d glass-shine p-5 rounded flex flex-col justify-between">
               <div className="text-[9px] font-bold tracking-widest text-sage-muted">System Directory</div>
               <div className="text-2xl font-black text-white mt-2">{users.length} Terminals</div>
               <p className="text-[9px] text-sage-muted mt-2 font-sans lowercase">Total profiles initialized in db.</p>
