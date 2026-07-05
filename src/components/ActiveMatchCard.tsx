@@ -17,7 +17,8 @@ export default function ActiveMatchCard({ match }: ActiveMatchCardProps) {
     bets, 
     placeBet, 
     declareWinner, 
-    bypassWinnerLock 
+    bypassWinnerLock,
+    requestDeposit
   } = useSimState();
 
   // Live Timer states
@@ -32,6 +33,34 @@ export default function ActiveMatchCard({ match }: ActiveMatchCardProps) {
   const [betAmount, setBetAmount] = useState<number>(50);
   const [betError, setBetError] = useState("");
   const [betSuccess, setBetSuccess] = useState("");
+
+  // Inline funding states
+  const [inlineUpiRef, setInlineUpiRef] = useState("");
+  const [inlineFundSuccess, setInlineFundSuccess] = useState("");
+  const [inlineFundError, setInlineFundError] = useState("");
+
+  const handleInlineFund = (e: React.FormEvent) => {
+    e.preventDefault();
+    setInlineFundError("");
+    setInlineFundSuccess("");
+    
+    const shortage = betAmount - (activeUser?.walletBalance || 0);
+    if (shortage <= 0) return;
+    
+    if (!inlineUpiRef.trim()) {
+      setInlineFundError("Reference ID is required.");
+      return;
+    }
+    
+    const res = requestDeposit(shortage, inlineUpiRef);
+    if (res.success) {
+      setInlineFundSuccess(`Added ₹${shortage}! Balance updated.`);
+      setInlineUpiRef("");
+      setTimeout(() => setInlineFundSuccess(""), 4000);
+    } else {
+      setInlineFundError(res.message);
+    }
+  };
 
   // Get bets for this match
   const matchBets = bets.filter((b) => b.matchId === match.id);
@@ -365,14 +394,42 @@ export default function ActiveMatchCard({ match }: ActiveMatchCardProps) {
                 </div>
 
                 {activeUser.walletBalance < betAmount && (
-                  <div className="text-[10px] text-yellow-400 bg-yellow-500/10 border border-yellow-500/25 p-2.5 rounded flex items-start gap-2">
-                    <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
-                    <div>
-                      <span>Insufficient wallet balance. Redirection path open to pay. </span>
-                      <Link href="/wallet" className="text-primary hover:underline font-bold">
-                        Fund Wallet ➔
-                      </Link>
+                  <div className="bg-[#12080f]/90 border border-[#FF007A]/25 p-3 rounded flex flex-col gap-2 font-sans text-xs">
+                    <div className="flex items-start gap-2">
+                      <AlertCircle className="w-3.5 h-3.5 text-pink-pop shrink-0 mt-0.5" />
+                      <div>
+                        <div className="font-extrabold text-white uppercase text-[9px] tracking-wider">Quick Deposit Required</div>
+                        <p className="text-sage-muted text-[9px] leading-relaxed mt-0.5">
+                          You need <span className="text-pink-pop font-bold">₹{betAmount - activeUser.walletBalance}</span> more. Click to pay on mobile or scan the wallet QR.
+                        </p>
+                      </div>
                     </div>
+
+                    <div className="flex gap-2 items-center mt-1">
+                      <a 
+                        href={`upi://pay?pa=sambitbarik.virtue@oksbi&pn=BetBall&am=${betAmount - activeUser.walletBalance}&cu=INR`}
+                        className="bg-pink-pop text-white font-extrabold px-2.5 py-1.5 rounded text-[8px] tracking-wider uppercase flex items-center gap-1 shrink-0 hover:bg-pink-pop-dark transition-all"
+                      >
+                        ⚡ GPay/PhonePe
+                      </a>
+                      <input
+                        type="text"
+                        placeholder="UTR ID (e.g. 9988)"
+                        value={inlineUpiRef}
+                        onChange={(e) => setInlineUpiRef(e.target.value)}
+                        className="flex-1 bg-dark-bg border border-dark-border rounded px-2 py-1 text-[10px] text-white focus:outline-none focus:border-primary/45 font-mono"
+                      />
+                      <button
+                        type="button"
+                        onClick={handleInlineFund}
+                        className="bg-primary/20 hover:bg-primary/30 border border-primary/35 text-primary font-black px-2.5 py-1.5 rounded text-[8px] tracking-wider uppercase transition-all cursor-pointer font-mono"
+                      >
+                        Credit
+                      </button>
+                    </div>
+
+                    {inlineFundError && <p className="text-[9px] text-red-400 font-semibold">{inlineFundError}</p>}
+                    {inlineFundSuccess && <p className="text-[9px] text-green-400 font-bold">{inlineFundSuccess}</p>}
                   </div>
                 )}
 
