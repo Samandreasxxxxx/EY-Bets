@@ -159,15 +159,15 @@ export function SimStateProvider({ children }: { children: React.ReactNode }) {
 
   // Load from localStorage
   useEffect(() => {
-    const localUsers = localStorage.getItem("bb_users");
-    const localActiveUserId = localStorage.getItem("bb_active_user_id");
-    const localMatches = localStorage.getItem("bb_matches");
-    const localBets = localStorage.getItem("bb_bets");
-    const localDeposits = localStorage.getItem("bb_deposits");
-    const localWithdrawals = localStorage.getItem("bb_withdrawals");
-    const localFriendRequests = localStorage.getItem("bb_friend_requests");
-    const localNotifications = localStorage.getItem("bb_notifications");
-    const localTransactions = localStorage.getItem("bb_transactions");
+    const localUsers = localStorage.getItem("bb_users_v2");
+    const localActiveUserId = localStorage.getItem("bb_active_user_id_v2");
+    const localMatches = localStorage.getItem("bb_matches_v2");
+    const localBets = localStorage.getItem("bb_bets_v2");
+    const localDeposits = localStorage.getItem("bb_deposits_v2");
+    const localWithdrawals = localStorage.getItem("bb_withdrawals_v2");
+    const localFriendRequests = localStorage.getItem("bb_friend_requests_v2");
+    const localNotifications = localStorage.getItem("bb_notifications_v2");
+    const localTransactions = localStorage.getItem("bb_transactions_v2");
 
     let loadedUsers: User[] = [];
     
@@ -175,107 +175,107 @@ export function SimStateProvider({ children }: { children: React.ReactNode }) {
       loadedUsers = JSON.parse(localUsers);
       setUsers(loadedUsers);
     } else {
-      // Seed default users
+      // Seed default users with zero balances/stats
       const defaultUsers: User[] = [
         {
           id: "samandreas",
           username: "Samandreas",
           walletBalance: 0,
           isBanned: false,
-          createdAt: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
+          createdAt: new Date().toISOString(),
           stats: {
-            totalWins: 14,
-            totalLosses: 6,
-            totalMatches: 20,
-            netProfit: 1450,
-            totalMoneyWon: 2850,
-            totalMoneyLost: 1400,
-            biggestWin: 650,
-            streak: 3
+            totalWins: 0,
+            totalLosses: 0,
+            totalMatches: 0,
+            netProfit: 0,
+            totalMoneyWon: 0,
+            totalMoneyLost: 0,
+            biggestWin: 0,
+            streak: 0
           },
-          badges: ["👑 Owner", "🔥 On Fire", "🎯 Sniper"],
-          friends: ["rohan", "divya", "rahul"]
+          badges: ["👑 Owner"],
+          friends: []
         },
         {
           id: "rohan",
           username: "Rohan",
           walletBalance: 0,
           isBanned: false,
-          createdAt: new Date(Date.now() - 25 * 24 * 60 * 60 * 1000).toISOString(),
+          createdAt: new Date().toISOString(),
           stats: {
-            totalWins: 8,
-            totalLosses: 10,
-            totalMatches: 18,
-            netProfit: -200,
-            totalMoneyWon: 1200,
-            totalMoneyLost: 1400,
-            biggestWin: 350,
+            totalWins: 0,
+            totalLosses: 0,
+            totalMatches: 0,
+            netProfit: 0,
+            totalMoneyWon: 0,
+            totalMoneyLost: 0,
+            biggestWin: 0,
             streak: 0
           },
-          badges: ["💎 High Roller"],
-          friends: ["samandreas", "divya", "meera"]
+          badges: [],
+          friends: []
         },
         {
           id: "divya",
           username: "Divya",
           walletBalance: 0,
           isBanned: false,
-          createdAt: new Date(Date.now() - 20 * 24 * 60 * 60 * 1000).toISOString(),
+          createdAt: new Date().toISOString(),
           stats: {
-            totalWins: 12,
-            totalLosses: 5,
-            totalMatches: 17,
-            netProfit: 950,
-            totalMoneyWon: 2150,
-            totalMoneyLost: 1200,
-            biggestWin: 520,
-            streak: 4
+            totalWins: 0,
+            totalLosses: 0,
+            totalMatches: 0,
+            netProfit: 0,
+            totalMoneyWon: 0,
+            totalMoneyLost: 0,
+            biggestWin: 0,
+            streak: 0
           },
-          badges: ["⚡ Streak Master", "🎯 Sniper"],
-          friends: ["samandreas", "rohan", "meera"]
+          badges: [],
+          friends: []
         },
         {
           id: "rahul",
           username: "Rahul",
           walletBalance: 0,
           isBanned: false,
-          createdAt: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000).toISOString(),
+          createdAt: new Date().toISOString(),
           stats: {
-            totalWins: 5,
-            totalLosses: 8,
-            totalMatches: 13,
-            netProfit: -450,
-            totalMoneyWon: 750,
-            totalMoneyLost: 1200,
-            biggestWin: 220,
+            totalWins: 0,
+            totalLosses: 0,
+            totalMatches: 0,
+            netProfit: 0,
+            totalMoneyWon: 0,
+            totalMoneyLost: 0,
+            biggestWin: 0,
             streak: 0
           },
-          badges: ["🛡️ Underdog"],
-          friends: ["samandreas", "meera"]
+          badges: [],
+          friends: []
         },
         {
           id: "meera",
           username: "Meera",
           walletBalance: 0,
           isBanned: false,
-          createdAt: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(),
+          createdAt: new Date().toISOString(),
           stats: {
-            totalWins: 7,
-            totalLosses: 6,
-            totalMatches: 13,
-            netProfit: 180,
-            totalMoneyWon: 1080,
-            totalMoneyLost: 900,
-            biggestWin: 300,
-            streak: 1
+            totalWins: 0,
+            totalLosses: 0,
+            totalMatches: 0,
+            netProfit: 0,
+            totalMoneyWon: 0,
+            totalMoneyLost: 0,
+            biggestWin: 0,
+            streak: 0
           },
           badges: [],
-          friends: ["rohan", "divya", "rahul"]
+          friends: []
         }
       ];
       loadedUsers = defaultUsers;
       setUsers(defaultUsers);
-      localStorage.setItem("bb_users", JSON.stringify(defaultUsers));
+      localStorage.setItem("bb_users_v2", JSON.stringify(defaultUsers));
     }
 
     // Set active user
@@ -284,166 +284,43 @@ export function SimStateProvider({ children }: { children: React.ReactNode }) {
       setActiveUser(active || loadedUsers[0]);
     } else {
       setActiveUser(loadedUsers[0]);
-      localStorage.setItem("bb_active_user_id", loadedUsers[0].id);
+      localStorage.setItem("bb_active_user_id_v2", loadedUsers[0].id);
     }
 
     // Seed matches and other tables if empty
     if (localMatches) {
       setMatches(JSON.parse(localMatches));
     } else {
-      // Seed some historical matches
-      const initialMatches: Match[] = [
-        {
-          id: "POOL-8921",
-          game: "Foosball",
-          teamA: "Red Aliens",
-          teamB: "Green Crawlers",
-          creatorId: "rohan",
-          creatorName: "Rohan",
-          minBet: 10,
-          maxBet: 500,
-          betWindowMinutes: 5,
-          createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
-          closesAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000 + 5 * 60 * 1000).toISOString(),
-          unlocksWinnerAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000 + 10 * 60 * 1000).toISOString(),
-          status: "completed",
-          winner: "B",
-          totalPool: 650,
-          feeDeducted: 32.5,
-          distributablePool: 617.5
-        },
-        {
-          id: "POOL-4301",
-          game: "Table Tennis",
-          teamA: "Samandreas",
-          teamB: "Divya",
-          creatorId: "samandreas",
-          creatorName: "Samandreas",
-          minBet: 50,
-          maxBet: 1000,
-          betWindowMinutes: 10,
-          createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
-          closesAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000 + 10 * 60 * 1000).toISOString(),
-          unlocksWinnerAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000 + 10 * 60 * 1000).toISOString(),
-          status: "completed",
-          winner: "A",
-          totalPool: 1200,
-          feeDeducted: 60,
-          distributablePool: 1140
-        }
-      ];
-      setMatches(initialMatches);
-      localStorage.setItem("bb_matches", JSON.stringify(initialMatches));
+      setMatches([]);
+      localStorage.setItem("bb_matches_v2", JSON.stringify([]));
     }
 
     if (localBets) {
       setBets(JSON.parse(localBets));
     } else {
-      const initialBets: Bet[] = [
-        {
-          id: "bet_1",
-          matchId: "POOL-8921",
-          userId: "rohan",
-          username: "Rohan",
-          team: "A",
-          amount: 200,
-          status: "lost",
-          payout: 0,
-          createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString()
-        },
-        {
-          id: "bet_2",
-          matchId: "POOL-8921",
-          userId: "divya",
-          username: "Divya",
-          team: "B",
-          amount: 150,
-          status: "won",
-          payout: 205.83, // 617.5 * (150/450)
-          createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString()
-        },
-        {
-          id: "bet_3",
-          matchId: "POOL-8921",
-          userId: "meera",
-          username: "Meera",
-          team: "B",
-          amount: 300,
-          status: "won",
-          payout: 411.67, // 617.5 * (300/450)
-          createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString()
-        },
-        {
-          id: "bet_4",
-          matchId: "POOL-4301",
-          userId: "samandreas",
-          username: "Samandreas",
-          team: "A",
-          amount: 500,
-          status: "won",
-          payout: 814.28, // 1140 * (500/700)
-          createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString()
-        },
-        {
-          id: "bet_5",
-          matchId: "POOL-4301",
-          userId: "rahul",
-          username: "Rahul",
-          team: "A",
-          amount: 200,
-          status: "won",
-          payout: 325.72, // 1140 * (200/700)
-          createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString()
-        },
-        {
-          id: "bet_6",
-          matchId: "POOL-4301",
-          userId: "divya",
-          username: "Divya",
-          team: "B",
-          amount: 500,
-          status: "lost",
-          payout: 0,
-          createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString()
-        }
-      ];
-      setBets(initialBets);
-      localStorage.setItem("bb_bets", JSON.stringify(initialBets));
+      setBets([]);
+      localStorage.setItem("bb_bets_v2", JSON.stringify([]));
     }
 
     if (localDeposits) {
       setDepositRequests(JSON.parse(localDeposits));
     } else {
-      const initialDeposits: DepositRequest[] = [
-        {
-          id: "dep_1",
-          userId: "samandreas",
-          username: "Samandreas",
-          amount: 1000,
-          upiRef: "REF82937402",
-          status: "approved",
-          createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString()
-        },
-        {
-          id: "dep_2",
-          userId: "divya",
-          username: "Divya",
-          amount: 1500,
-          upiRef: "REF93028304",
-          status: "approved",
-          createdAt: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString()
-        }
-      ];
-      setDepositRequests(initialDeposits);
-      localStorage.setItem("bb_deposits", JSON.stringify(initialDeposits));
+      setDepositRequests([]);
+      localStorage.setItem("bb_deposits_v2", JSON.stringify([]));
     }
 
     if (localWithdrawals) {
       setWithdrawalRequests(JSON.parse(localWithdrawals));
+    } else {
+      setWithdrawalRequests([]);
+      localStorage.setItem("bb_withdrawals_v2", JSON.stringify([]));
     }
 
     if (localFriendRequests) {
       setFriendRequests(JSON.parse(localFriendRequests));
+    } else {
+      setFriendRequests([]);
+      localStorage.setItem("bb_friend_requests_v2", JSON.stringify([]));
     }
 
     if (localNotifications) {
@@ -460,34 +337,14 @@ export function SimStateProvider({ children }: { children: React.ReactNode }) {
         }
       ];
       setNotifications(initialNotifications);
-      localStorage.setItem("bb_notifications", JSON.stringify(initialNotifications));
+      localStorage.setItem("bb_notifications_v2", JSON.stringify(initialNotifications));
     }
 
     if (localTransactions) {
       setWalletTransactions(JSON.parse(localTransactions));
     } else {
-      const initialTransactions: WalletTransaction[] = [
-        {
-          id: "tx_1",
-          userId: "samandreas",
-          type: "deposit",
-          amount: 1000,
-          referenceId: "REF82937402",
-          details: "UPI Deposit Approved by Admin",
-          createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString()
-        },
-        {
-          id: "tx_2",
-          userId: "divya",
-          type: "deposit",
-          amount: 1500,
-          referenceId: "REF93028304",
-          details: "UPI Deposit Approved by Admin",
-          createdAt: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString()
-        }
-      ];
-      setWalletTransactions(initialTransactions);
-      localStorage.setItem("bb_transactions", JSON.stringify(initialTransactions));
+      setWalletTransactions([]);
+      localStorage.setItem("bb_transactions_v2", JSON.stringify([]));
     }
 
     setInitialized(true);
@@ -513,14 +370,14 @@ export function SimStateProvider({ children }: { children: React.ReactNode }) {
     setNotifications(updatedNotifications);
     setWalletTransactions(updatedTransactions);
 
-    localStorage.setItem("bb_users", JSON.stringify(updatedUsers));
-    localStorage.setItem("bb_matches", JSON.stringify(updatedMatches));
-    localStorage.setItem("bb_bets", JSON.stringify(updatedBets));
-    localStorage.setItem("bb_deposits", JSON.stringify(updatedDeposits));
-    localStorage.setItem("bb_withdrawals", JSON.stringify(updatedWithdrawals));
-    localStorage.setItem("bb_friend_requests", JSON.stringify(updatedFriends));
-    localStorage.setItem("bb_notifications", JSON.stringify(updatedNotifications));
-    localStorage.setItem("bb_transactions", JSON.stringify(updatedTransactions));
+    localStorage.setItem("bb_users_v2", JSON.stringify(updatedUsers));
+    localStorage.setItem("bb_matches_v2", JSON.stringify(updatedMatches));
+    localStorage.setItem("bb_bets_v2", JSON.stringify(updatedBets));
+    localStorage.setItem("bb_deposits_v2", JSON.stringify(updatedDeposits));
+    localStorage.setItem("bb_withdrawals_v2", JSON.stringify(updatedWithdrawals));
+    localStorage.setItem("bb_friend_requests_v2", JSON.stringify(updatedFriends));
+    localStorage.setItem("bb_notifications_v2", JSON.stringify(updatedNotifications));
+    localStorage.setItem("bb_transactions_v2", JSON.stringify(updatedTransactions));
 
     // Also update active user reference
     if (activeUser) {
@@ -536,7 +393,7 @@ export function SimStateProvider({ children }: { children: React.ReactNode }) {
     const user = users.find(u => u.id === userId);
     if (user) {
       setActiveUser(user);
-      localStorage.setItem("bb_active_user_id", userId);
+      localStorage.setItem("bb_active_user_id_v2", userId);
     }
   };
 
@@ -572,11 +429,11 @@ export function SimStateProvider({ children }: { children: React.ReactNode }) {
 
     const updatedUsers = [...users, newUser];
     setUsers(updatedUsers);
-    localStorage.setItem("bb_users", JSON.stringify(updatedUsers));
+    localStorage.setItem("bb_users_v2", JSON.stringify(updatedUsers));
     
     // Automatically switch to the newly created user
     setActiveUser(newUser);
-    localStorage.setItem("bb_active_user_id", id);
+    localStorage.setItem("bb_active_user_id_v2", id);
 
     // Send a welcome notification
     const newNotif: Notification = {
@@ -589,7 +446,7 @@ export function SimStateProvider({ children }: { children: React.ReactNode }) {
     };
     const updatedNotifs = [newNotif, ...notifications];
     setNotifications(updatedNotifs);
-    localStorage.setItem("bb_notifications", JSON.stringify(updatedNotifs));
+    localStorage.setItem("bb_notifications_v2", JSON.stringify(updatedNotifs));
 
     return newUser;
   };
