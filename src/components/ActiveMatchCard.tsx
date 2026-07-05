@@ -159,7 +159,7 @@ export default function ActiveMatchCard({ match }: ActiveMatchCardProps) {
 
   return (
     <div className="glass-3d glass-shine hover:border-pink-pop/35 transition-all rounded-lg overflow-hidden flex flex-col justify-between">
-      {match.status === "completed" && userBet && userBet.status === "won" && (
+      {match.status === "completed" && userBet && userBet.status === "won" && (Date.now() - new Date(match.unlocksWinnerAt).getTime() < 15000) && (
         <ConfettiEffect />
       )}
       
