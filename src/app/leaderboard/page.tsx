@@ -24,29 +24,13 @@ export default function LeaderboardPage() {
   // Position names mapping for podium (2nd, 1st, 3rd)
   const podiumOrder = [
     { pos: 1, user: top3[1], height: "h-28 sm:h-36", scale: "scale-95", glow: "border-t-white/40" }, // 2nd place
-    { pos: 0, user: top3[0], height: "h-36 sm:h-48", scale: "scale-100", glow: "border-t-primary shadow-[0_0_15px_rgba(213,255,64,0.15)]" },   // 1st place
+    { pos: 0, user: top3[0], height: "h-36 sm:h-48", scale: "scale-100", glow: "border-t-primary" },   // 1st place
     { pos: 2, user: top3[2], height: "h-20 sm:h-28", scale: "scale-90", glow: "border-t-pink-pop/50" }  // 3rd place
   ];
 
   return (
     <div className="flex flex-col min-h-screen bg-dark-bg font-sans pb-24 overflow-hidden relative">
       <Header />
-
-      {/* Floating Black Asteroids Layer with Lime & Pink Glow outlines */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Asteroid 1 (Large, slow, pink glow) */}
-        <div className="absolute top-28 left-[10%] w-16 h-14 asteroid-rock asteroid-glow-pink rounded-[40%_60%_55%_45%] opacity-70 animate-float-asteroid-slow"></div>
-        {/* Asteroid 2 (Medium, green glow) */}
-        <div className="absolute top-44 right-[12%] w-10 h-10 asteroid-rock asteroid-glow-green rounded-[50%_40%_60%_50%] opacity-65 animate-float-asteroid-medium"></div>
-        {/* Asteroid 3 (Small, plain) */}
-        <div className="absolute top-96 left-[5%] w-6 h-6 asteroid-rock rounded-full opacity-50 animate-float-asteroid-fast"></div>
-        {/* Asteroid 4 (Medium, pink glow, behind podium) */}
-        <div className="absolute top-[26rem] right-[8%] w-12 h-10 asteroid-rock asteroid-glow-pink rounded-full opacity-60 animate-float-asteroid-slow"></div>
-        {/* Asteroid 5 (Small, green glow, bottom-left) */}
-        <div className="absolute top-[30rem] left-[15%] w-8 h-8 asteroid-rock asteroid-glow-green rounded-[60%_40%_30%_70%] opacity-50 animate-float-asteroid-medium"></div>
-        {/* Asteroid 6 (Large, bottom right, pink glow) */}
-        <div className="absolute bottom-20 right-[5%] w-20 h-16 asteroid-rock asteroid-glow-pink rounded-[45%_55%_45%_55%] opacity-70 animate-float-asteroid-slow"></div>
-      </div>
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-8 relative z-10">
         

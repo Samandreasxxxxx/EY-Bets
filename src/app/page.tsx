@@ -121,7 +121,7 @@ export default function Dashboard() {
         </div>
 
         {/* Quick Stats Dashboard (Sharp, Hot Pink edge Pop) */}
-        <section className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           
           {/* Wallet Card */}
           <div className="glass-3d glass-shine hover:border-pink-pop/30 transition-all p-4 rounded flex flex-col justify-between relative">
@@ -150,35 +150,6 @@ export default function Dashboard() {
             </div>
             <span className="text-[9px] text-sage-muted mt-2 font-mono uppercase">
               Payout Claims: ₹{activeUser.stats.totalMoneyWon}
-            </span>
-          </div>
-
-          {/* Win Rate Card */}
-          <div className="glass-3d glass-shine hover:border-pink-pop/30 transition-all p-4 rounded flex flex-col justify-between">
-            <div className="flex justify-between items-start text-sage-muted">
-              <span className="text-[9px] font-bold font-mono uppercase tracking-widest">Win Rate %</span>
-              <Trophy className="w-4 h-4 text-primary" />
-            </div>
-            <div className="mt-3">
-              <span className="text-xl md:text-2xl font-black font-mono text-white">{winRate}%</span>
-            </div>
-            <span className="text-[9px] text-sage-muted mt-2 font-mono uppercase">
-              Record: {activeUser.stats.totalWins}W / {activeUser.stats.totalLosses}L
-            </span>
-          </div>
-
-          {/* Winning Streak Card */}
-          <div className="glass-3d glass-shine hover:border-pink-pop/30 transition-all p-4 rounded flex flex-col justify-between border-r-2 border-r-pink-pop">
-            <div className="flex justify-between items-start text-sage-muted">
-              <span className="text-[9px] font-bold font-mono uppercase tracking-widest">Win Streak</span>
-              <Award className="w-4 h-4 text-pink-pop animate-pulse" />
-            </div>
-            <div className="mt-3 flex items-baseline gap-1">
-              <span className="text-xl md:text-2xl font-black font-mono text-primary glow-text-green">{activeUser.stats.streak}</span>
-              <span className="text-[9px] text-sage-muted font-bold font-mono uppercase">Lobby</span>
-            </div>
-            <span className="text-[9px] text-sage-muted mt-2 font-mono uppercase">
-              Record claim: ₹{activeUser.stats.biggestWin}
             </span>
           </div>
 
@@ -243,45 +214,8 @@ export default function Dashboard() {
             )}
           </div>
 
-          {/* RIGHT: Lobby Feed & Match History (1 Col on lg) */}
-          <div className="flex flex-col gap-6">
-            
-            {/* Live Social Feed (Pop Highlights) */}
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-2 glass-3d p-3.5 rounded relative">
-                {/* Ping Dot */}
-                <span className="relative flex h-2 w-2 mr-1">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-pop opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-pop"></span>
-                </span>
-                <h3 className="font-black text-xs uppercase text-white tracking-widest font-mono">Lobby Signal Radar</h3>
-              </div>
-              
-              <div className="glass-3d p-4 rounded flex flex-col gap-3">
-                {sortedFeed.length === 0 ? (
-                  <div className="text-xs text-sage-muted text-center py-6 font-mono">
-                    Lobby activity scanner is quiet.
-                  </div>
-                ) : (
-                  <div className="flex flex-col gap-2.5 font-sans text-xs">
-                    {sortedFeed.map((ev) => (
-                      <div key={ev.id} className="flex gap-2.5 items-start bg-dark-bg/35 p-2.5 rounded border border-dark-border/40 hover:border-pink-pop/20 transition-all">
-                        <span className="text-sm shrink-0 select-none">{ev.icon}</span>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-white font-medium leading-normal text-[10.5px]">{ev.text}</p>
-                          <span className="text-[8px] text-sage-muted/65 font-mono mt-0.5 block">
-                            {new Date(ev.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Match History */}
-            <div className="flex flex-col gap-3">
+          {/* RIGHT: Match History (1 Col on lg) */}
+          <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2 glass-3d p-3.5 rounded">
                 <History className="w-4 h-4 text-primary" />
                 <h3 className="font-black text-xs uppercase text-white tracking-widest font-mono">Resolved Matches</h3>
@@ -334,8 +268,6 @@ export default function Dashboard() {
             </div>
 
           </div>
-
-        </div>
 
       </main>
 

@@ -76,17 +76,6 @@ export default function Header() {
         >
           Wallet
         </Link>
-        <Link 
-          href="/profile" 
-          className={`hover:text-white transition-all duration-200 ${
-            pathname === "/profile" 
-              ? "text-primary glow-text-green border-b border-primary pb-0.5" 
-              : "hover:border-b hover:border-white pb-0.5"
-          }`}
-        >
-          Radar
-        </Link>
-        
         {/* Admin Link */}
         {activeUser.id === "samandreas" && (
           <Link 
@@ -209,15 +198,10 @@ export default function Header() {
           )}
         </div>
 
-        {/* User Badge Profile Icon (Sharp with Pink glow) */}
-        <Link 
-          href="/profile"
-          className="flex items-center"
-        >
-          <div className="w-8 h-8 rounded-lg bg-dark-card border border-dark-border hover:border-pink-pop transition-all flex items-center justify-center font-bold text-xs text-primary shadow">
-            {activeUser.username[0].toUpperCase()}
-          </div>
-        </Link>
+        {/* User Badge Profile Icon (Static) */}
+        <div className="w-8 h-8 rounded bg-dark-card border border-dark-border flex items-center justify-center font-bold text-xs text-primary shadow select-none">
+          {activeUser.username[0].toUpperCase()}
+        </div>
 
       </div>
     </header>

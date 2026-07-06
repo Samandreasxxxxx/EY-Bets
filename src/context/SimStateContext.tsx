@@ -113,7 +113,6 @@ interface SimStateContextType {
   bets: Bet[];
   depositRequests: DepositRequest[];
   withdrawalRequests: WithdrawalRequest[];
-  friendRequests: FriendRequest[];
   notifications: Notification[];
   walletTransactions: WalletTransaction[];
   switchUser: (userId: string) => void;
@@ -134,9 +133,6 @@ interface SimStateContextType {
   approveWithdrawal: (withdrawalId: string) => void;
   rejectWithdrawal: (withdrawalId: string) => void;
   declareWinner: (matchId: string, winnerTeam: "A" | "B") => { success: boolean; message: string };
-  sendFriendRequest: (friendUsername: string) => { success: boolean; message: string };
-  acceptFriendRequest: (requestId: string) => void;
-  rejectFriendRequest: (requestId: string) => void;
   clearNotifications: () => void;
   markNotificationsAsRead: () => void;
   bypassWinnerLock: (matchId: string) => void;
@@ -165,7 +161,6 @@ export function SimStateProvider({ children }: { children: React.ReactNode }) {
     const localBets = localStorage.getItem("bb_bets_v2");
     const localDeposits = localStorage.getItem("bb_deposits_v2");
     const localWithdrawals = localStorage.getItem("bb_withdrawals_v2");
-    const localFriendRequests = localStorage.getItem("bb_friend_requests_v2");
     const localNotifications = localStorage.getItem("bb_notifications_v2");
     const localTransactions = localStorage.getItem("bb_transactions_v2");
 
@@ -314,13 +309,6 @@ export function SimStateProvider({ children }: { children: React.ReactNode }) {
     } else {
       setWithdrawalRequests([]);
       localStorage.setItem("bb_withdrawals_v2", JSON.stringify([]));
-    }
-
-    if (localFriendRequests) {
-      setFriendRequests(JSON.parse(localFriendRequests));
-    } else {
-      setFriendRequests([]);
-      localStorage.setItem("bb_friend_requests_v2", JSON.stringify([]));
     }
 
     if (localNotifications) {
@@ -1304,7 +1292,6 @@ export function SimStateProvider({ children }: { children: React.ReactNode }) {
         bets,
         depositRequests,
         withdrawalRequests,
-        friendRequests,
         notifications,
         walletTransactions,
         switchUser,
@@ -1318,16 +1305,13 @@ export function SimStateProvider({ children }: { children: React.ReactNode }) {
         approveWithdrawal,
         rejectWithdrawal,
         declareWinner,
-        sendFriendRequest,
-        acceptFriendRequest,
-        rejectFriendRequest,
         clearNotifications,
         markNotificationsAsRead,
         bypassWinnerLock,
         addFundsAdmin
       }}
     >
-      {initialized ? children : <div className="min-h-screen bg-dark-bg flex items-center justify-center text-primary font-mono animate-pulse">👽 LOADING CYBERNETIC CORES...</div>}
+      {initialized ? children : <div className="min-h-screen bg-dark-bg flex items-center justify-center text-primary font-mono animate-pulse">👽 LOADING CORES...</div>}
     </SimStateContext.Provider>
   );
 }
